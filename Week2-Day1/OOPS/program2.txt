@@ -1,0 +1,30 @@
+Q2. Movie Ticket Booking
+
+CLASS Ticket
+    ATTRIBUTES: movie, seat, price, booked = true
+    METHOD cancel()
+        booked = false
+        PRINT "Ticket cancelled"
+
+CLASS Theatre
+    ATTRIBUTE: seatMap (seat -> availability)
+    METHOD bookTicket(movie, seat, price)
+        IF seat is available THEN
+            Mark seat unavailable
+            RETURN new Ticket(movie, seat, price)
+        ELSE
+            PRINT "Seat not available"
+
+    METHOD cancelTicket(ticket)
+        Mark ticket.seat as available
+        ticket.cancel()
+
+CLASS Customer
+    METHOD bookMovie(theatre, movie, seat)
+        CALL theatre.bookTicket(movie, seat)
+
+MAIN
+    CREATE Theatre
+    Customer books "Avengers", seat A12
+    Customer cancels ticket
+
